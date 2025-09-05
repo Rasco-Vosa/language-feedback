@@ -6,18 +6,23 @@ from src.audio_transcriber import AudioTranscriber
 class LanguageFeedbackApp:
     def __init__(self):
         self.config = Config()
-        self.transcriber = AudioTranscriber()
+        
+        self.transcriber = AudioTranscriber(self.config)
+
         # self.analyzer = FeedbackAnalyzer(self.config)
         # self.formatter = FeedbackFormatter()
 
     def run(self, audio_file_path: str):
+        
         # Step 1 - Audio Transcription
         transcript = self.transcriber.trascribe_audio(audio_file_path, test=False)
+        # transcript = "White attended South High School in Denver, Co."
         print("Transcript:", transcript)
+        
         if not transcript:
             print("Audio couldn't be transcribed")
             return
-
+    
         # # Step 2 - Analyze transcript + audio
         # feedback = self.analyzer.generate_feedback(transcript, audio_file_path)
 

@@ -5,8 +5,8 @@ import os
 from .config_loader import Config
 
 class AudioTranscriber:
-    def __init__(self):
-        self.config = Config()
+    def __init__(self, config):
+        self.config = config
         self.config.load_creds()
 
         self.speech_config = speechsdk.SpeechConfig(
