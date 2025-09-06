@@ -1,3 +1,12 @@
+# virtual environment
 .venv/
+
+# environment variables )
 config/.env
+
+# data files
 data
+
+# python cache
+__pycache__/
+*.py[cod]
